@@ -13,25 +13,37 @@ const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <Card className={styles.card}>
           <div className={styles.switch}>
-            <h2 className={`${styles.heading} ${styles.active}`}> Login </h2>
-            <Link href="/register" className={styles.heading}>
-              Register
+            <Link href="/login" className={styles.heading}>
+              Login
             </Link>
+            <h2 className={`${styles.heading} ${styles.active}`}> Register </h2>
           </div>
           <Form
-            name="login"
+            name="register"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
             layout="vertical"
             scrollToFirstError
           >
+            <Form.Item
+              label="Name"
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your name!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
             <Form.Item
               label="Email"
               name="email"
@@ -56,22 +68,50 @@ const LoginPage = () => {
                   required: true,
                   message: "Please input your password!",
                 },
+                {
+                  min: 6,
+                  message: "Minimum length 6",
+                },
               ]}
             >
               <Input.Password />
             </Form.Item>
-            <Link href="/login" style={{ marginBottom: "15px" }}>
-              Forgot Password?
-            </Link>
 
-            <Form.Item className="text-center" style={{ marginBottom: "20px" }}>
+            <Form.Item
+              label="Confirm Password"
+              dependencies={["password"]}
+              name="confirmPassword"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your confirm password!",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error("The new password does not match!")
+                    );
+                  },
+                }),
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item
+              className="text-center"
+              style={{ marginBottom: "10px", marginTop: "5px" }}
+            >
               <Button
                 type="primary"
                 htmlType="submit"
                 shape="round"
-                style={{ width: "60%" }}
+                style={{ width: "60%", marginBottom: "10px" }}
               >
-                Login
+                Register
               </Button>
             </Form.Item>
           </Form>
@@ -87,4 +127,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,0 +1,74 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.main hr{
+  opacity: .4;
+}
+
+.container {
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+}
+
+.card {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.heading {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.social {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social button {
+  margin: 0 5px;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.switch .heading {
+  padding: 5px 30px 8px;
+  margin: 0;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+  min-width: 130px;
+  line-height: 1;
+}
+
+.switch .heading:first-child {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-right: -1px;
+}
+.switch .heading:last-child {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.switch .heading.active {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}

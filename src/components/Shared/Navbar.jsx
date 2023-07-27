@@ -1,12 +1,16 @@
-import React from 'react';
-import { useSession, signIn, signOut } from "next-auth/react"
+import React, { useContext } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import ThemeContext from "@/context/themeContext";
+import { Button, theme } from "antd";
 
 const Navbar = () => {
-    return (
-        <div>
-            navbar
-        </div>
-    );
+  const { isDark, setIsDark } = useContext(ThemeContext);
+
+  return (
+    <Button type="primary" theme="dark-mode" onClick={() => setIsDark(!isDark)}>
+      navbar
+    </Button>
+  );
 };
 
 export default Navbar;
