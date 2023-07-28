@@ -8,7 +8,7 @@ const HomeCategory = () => {
   return (
     <div className="my-5">
       <div className="heading">
-        <h4 className="title"> Category </h4>
+        <h4 className="title"> Featured Category </h4>
         <p> Get Your Desired Product from Featured Category! </p>
       </div>
 
@@ -16,9 +16,9 @@ const HomeCategory = () => {
         {categoryList.slice(0, 6).map((category, ind) => (
           <Col lg={2} md={3} sm={4} xs={6} key={ind}>
             <Link
-              href={`/category/${category.name}`}
+              href={`/category/${category?.link}`}
               style={{ textDecoration: "none" }}
-              className="text-dark d-block"
+              className="text-dark d-block h-100"
             >
               <div className={styles.categoryCard}>
                 <div className="fs-2"> {category?.icon} </div>
