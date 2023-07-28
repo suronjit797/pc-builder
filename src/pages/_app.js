@@ -1,8 +1,9 @@
 import { SessionProvider } from "next-auth/react";
 import "@/styles/globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { ConfigProvider } from "antd";
 import { useState } from "react";
-import ThemeContext from "@/context/themeContext";
+import ThemeContext from "@/context/ThemeContext";
 import { darkTheme, lightTheme } from "@/theme/themeConfig";
 
 export default function App({

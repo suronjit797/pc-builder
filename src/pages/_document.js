@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import React from "react";
+import { StyleProvider, createCache, extractStyle } from "@ant-design/cssinjs";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 const MyDocument = () => (
   <Html lang="en">
     <Head />
-    <body>
+    <body className="bg-body-secondary">
       <Main />
       <NextScript />
     </body>
@@ -17,11 +17,12 @@ MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => (
-        <StyleProvider cache={cache}>
-          <App {...props} />
-        </StyleProvider>
-      ),
+      enhanceApp: (App) => (props) =>
+        (
+          <StyleProvider cache={cache}>
+            <App {...props} />
+          </StyleProvider>
+        ),
     });
 
   const initialProps = await Document.getInitialProps(ctx);

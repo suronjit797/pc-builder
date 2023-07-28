@@ -1,7 +1,9 @@
 import React from "react";
 
 const Footer = () => {
-  return <div style={{ marginTop: "auto" }}>footer</div>;
+  return <footer style={{ marginTop: "auto" }}>
+    footer
+  </footer>;
 };
 
 export default Footer;

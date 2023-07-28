@@ -36,3 +36,17 @@ a {
   text-align: center;
   display: block;
 }
+
+.bg_primary {
+  background-color: var(--primary-color);
+}
+
+.heading {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.heading .title {
+  font-weight: bold;
+  font-size: 22px;
+}

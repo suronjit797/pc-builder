@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Navbar from "../Shared/Navbar";
+import NavbarCustom from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 
 const Layout1 = ({ children, title }) => {
@@ -18,7 +18,7 @@ const Layout1 = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <Navbar />
+        <NavbarCustom />
       </header>
       <main>{children}</main>
       <Footer />
