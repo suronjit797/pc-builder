@@ -1,13 +1,9 @@
-import { Josefin_Sans } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import Layout1 from "@/components/Layouts/Layout1";
 import HomeSlider from "@/components/Home/HomeSlider";
 import HomeCategory from "@/components/Home/HomeCategory";
 import { Container } from "react-bootstrap";
 import HomeProducts from "@/components/Home/HomeProducts";
 import axios from "axios";
-
-const josefin = Josefin_Sans({ subsets: ["latin"] });
 
 export default function Home({ products }) {
   return (
@@ -23,13 +19,13 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    "http://localhost:3000/api/v1/products?limit=6&page=1"
-  );
+  const res = await fetch(`${process.env.BASE_URL}/products?limit=8&page=1`);
   const products = await res.json();
+  console.log(products);
   return {
     props: {
       products,
     },
+    revalidate: 30,
   };
 }

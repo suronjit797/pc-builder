@@ -5,7 +5,7 @@ import { GrStorage } from "react-icons/gr";
 import { FiMonitor } from "react-icons/fi";
 
 export const productEnum = [
-  "cpu/processor",
+  "cpu",
   "motherboard",
   "ram",
   "powerSupplyUnit",
@@ -24,37 +24,37 @@ export const methods = {
 export const categoryList = [
   {
     name: "CPU / Processor",
-    link: "cpu/processor",
+    link: "/category/cpu",
     icon: <BsCpu />,
   },
   {
     name: "Motherboard",
-    link: "motherboard",
+    link: "/category/motherboard",
     icon: <BsMotherboard />,
   },
   {
     name: "RAM",
-    link: "ram",
+    link: "/category/ram",
     icon: <CgSmartphoneRam />,
   },
   {
     name: "Power Supply Unit",
-    link: "powerSupplyUnit",
+    link: "/category/powerSupplyUnit",
     icon: <MdOutlinePower />,
   },
   {
     name: "Storage Device",
-    link: "storageDevice",
+    link: "/category/storageDevice",
     icon: <GrStorage />,
   },
   {
     name: "Monitor",
-    link: "monitor",
+    link: "/category/monitor",
     icon: <FiMonitor />,
   },
   {
     name: "Others",
-    link: "others",
+    link: "/category/others",
     icon: <BsMouse />,
   },
 ];
