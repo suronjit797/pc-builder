@@ -7,15 +7,16 @@ import styles from "@/styles/Home.module.css";
 const { Meta } = Card;
 
 const ProductCard = ({ product }) => {
+  console.log(product)
   return (
-    <Link href={`/product/${product._id}`} style={{ textDecoration: "none" }}>
+    <Link href={`/product/${product._id}`} className='d-block' style={{ textDecoration: "none" }}>
       <Card
         className={styles.homeCard}
         hoverable
         cover={
           <Image
             alt="pc"
-            src="/images/slider1.webp"
+            src={product.image ? product.image : "/images/slider1.webp"}
             layout="responsive"
             width={250}
             height={300}

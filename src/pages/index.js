@@ -3,7 +3,7 @@ import HomeSlider from "@/components/Home/HomeSlider";
 import HomeCategory from "@/components/Home/HomeCategory";
 import { Container } from "react-bootstrap";
 import HomeProducts from "@/components/Home/HomeProducts";
-import axios from "axios";
+
 
 export default function Home({ products }) {
   return (

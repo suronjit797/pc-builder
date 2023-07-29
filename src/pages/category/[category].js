@@ -1,7 +1,7 @@
 import CategoryLayout from "@/components/Layouts/CategoryLayout";
 import Layout1 from "@/components/Layouts/Layout1";
 import { Table } from "antd";
-import axios from "axios";
+
 
 const columns = [
   {

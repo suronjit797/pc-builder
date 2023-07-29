@@ -22,6 +22,9 @@ const NavbarCustom = () => {
             <Link className="nav-link" href="/">
               Home
             </Link>
+            <Link className="nav-link" href="/product">
+              Products
+            </Link>
             {/* <Nav className="nav-link" href="/">
               Link
             </Nav> */}

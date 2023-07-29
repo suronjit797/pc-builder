@@ -7,9 +7,7 @@ import ThemeContext from "@/context/ThemeContext";
 import { Provider } from "react-redux";
 import { darkTheme, lightTheme } from "@/theme/themeConfig";
 import { store } from "@/redux/store";
-import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:5000'
 
 export default function App({
   Component,

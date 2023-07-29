@@ -16,7 +16,7 @@ const HomeCategory = () => {
         {categoryList.slice(0, 6).map((category, ind) => (
           <Col lg={2} md={3} sm={4} xs={6} key={ind}>
             <Link
-              href={`/category/${category?.link}`}
+              href={`/${category?.link}`}
               style={{ textDecoration: "none" }}
               className="text-dark d-block h-100"
             >
