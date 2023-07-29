@@ -7,7 +7,6 @@ import styles from "@/styles/Home.module.css";
 const { Meta } = Card;
 
 const ProductCard = ({ product }) => {
-  console.log(product)
   return (
     <Link href={`/product/${product._id}`} className='d-block' style={{ textDecoration: "none" }}>
       <Card
@@ -20,6 +19,7 @@ const ProductCard = ({ product }) => {
             layout="responsive"
             width={250}
             height={300}
+            style={{ maxWidth: "250px" }}
           />
         }
       >

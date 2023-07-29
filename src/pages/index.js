@@ -21,7 +21,6 @@ export default function Home({ products }) {
 export async function getStaticProps() {
   const res = await fetch(`${process.env.BASE_URL}/products?limit=8&page=1`);
   const products = await res.json();
-  console.log(products);
   return {
     props: {
       products,

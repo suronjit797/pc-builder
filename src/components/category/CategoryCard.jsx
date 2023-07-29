@@ -16,7 +16,14 @@ const CategoryCard = ({ product }) => {
 
   return (
     <Card className="px-4 py-3 my-3 d-flex align-items-center flex-row ">
-      <Image src={product?.image} height={100} width={100} alt={product.name} />
+      <Image
+        src={product?.image}
+        height={100}
+        width={100}
+        layout="responsive"
+        style={{ maxWidth: "100px" }}
+        alt={product.name}
+      />
       <div className="me-auto px-4">
         <div className="text-primary fs-5 fw-bold text-capitalize">
           {product.name}

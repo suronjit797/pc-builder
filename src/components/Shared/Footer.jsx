@@ -1,10 +1,14 @@
-import { categoryList } from "@/_server/constant";
 import Link from "next/link";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const { categoryList} = useSelector(
+    (state) => state.category
+  );
   return (
+    
     <footer className="mt-auto bg_primary pt-5 pb-4 text-light">
       <Container>
         <Row className="g-4">

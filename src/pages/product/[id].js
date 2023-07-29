@@ -17,6 +17,7 @@ const ProductDetailsPage = ({ product }) => {
               layout="responsive"
               width={250}
               height={300}
+              style={{ maxWidth: "250px" }}
             />
           </Col>
           <Col lg={4} md={6}>

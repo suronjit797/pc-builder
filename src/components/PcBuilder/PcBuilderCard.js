@@ -35,6 +35,8 @@ const PcBuilderCard = ({ category }) => {
                 src={category?.item?.image}
                 height={100}
                 width={100}
+                layout="responsive"
+                style={{ maxWidth: "100px" }}
                 alt={category?.item?.name}
               />
             </Col>

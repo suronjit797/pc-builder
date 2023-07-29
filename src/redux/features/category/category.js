@@ -70,7 +70,6 @@ export const categorySlice = createSlice({
       const complete = state.categoryList.filter(
         (element) => Object.keys(element.item).length > 0
       );
-      console.log(complete.length);
       if (complete.length >= 5) {
         state.isComplete = true;
       }
