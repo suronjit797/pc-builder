@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { darkTheme, lightTheme } from "@/theme/themeConfig";
 import { store } from "@/redux/store";
 
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
@@ -18,13 +17,13 @@ export default function App({
   return (
     <div className={isDark ? "dark-theme" : ""}>
       <SessionProvider session={session}>
-        <Provider store={store}>
-          <ThemeContext.Provider value={{ isDark, setIsDark }}>
-            <ConfigProvider theme={isDark ? darkTheme : lightTheme}>
+        <ThemeContext.Provider value={{ isDark, setIsDark }}>
+          <ConfigProvider theme={isDark ? darkTheme : lightTheme}>
+            <Provider store={store}>
               <Component {...pageProps} />
-            </ConfigProvider>
-          </ThemeContext.Provider>
-        </Provider>
+            </Provider>
+          </ConfigProvider>
+        </ThemeContext.Provider>
       </SessionProvider>
     </div>
   );

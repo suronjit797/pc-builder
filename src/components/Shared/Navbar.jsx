@@ -31,11 +31,9 @@ const NavbarCustom = () => {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item> */}
               {categoryList.map((item) => (
-                <>
-                  <Link className="dropdown-item" href={item?.link}>
-                    {item?.name}
-                  </Link>
-                </>
+                <Link className="dropdown-item" key={item.id} href={item?.link}>
+                  {item?.name}
+                </Link>
               ))}
 
               {/* <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

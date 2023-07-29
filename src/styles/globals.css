@@ -40,6 +40,9 @@ a {
 .bg_primary {
   background-color: var(--primary-color);
 }
+.text_primary {
+  color: var(--primary-color);
+}
 
 .heading {
   text-align: center;
@@ -49,4 +52,17 @@ a {
 .heading .title {
   font-weight: bold;
   font-size: 22px;
+}
+
+@media (max-width: 767px) {
+  .pc-builder-card {
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+  }
+}
+@media (min-width: 768px) {
+  .pc-builder-card {
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+  }
 }

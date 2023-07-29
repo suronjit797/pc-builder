@@ -30,7 +30,7 @@ const Footer = () => {
               {categoryList.slice(0, 6).map((category, index) => (
                 <li key={index}>
                   <Link
-                    href={`/category/${category?.link}`}
+                    href={category?.link}
                     style={{ textDecoration: "none" }}
                     className="text-white text-decoration-none"
                   >
