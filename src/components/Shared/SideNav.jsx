@@ -8,9 +8,12 @@ const SideNav = () => {
     <div className="position-sticky" style={{ top: "15px" }}>
       <ListGroup>
         {categoryList.map((category) => (
-          <Link href={category.link} className="text-decoration-none">
-            {" "}
-            <ListGroup.Item> {category.name} </ListGroup.Item>{" "}
+          <Link
+            href={category.link}
+            key={category.id}
+            className="text-decoration-none"
+          >
+            <ListGroup.Item> {category.name} </ListGroup.Item>
           </Link>
         ))}
       </ListGroup>

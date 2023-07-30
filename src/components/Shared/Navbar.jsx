@@ -12,13 +12,12 @@ import { Button } from "antd";
 const NavbarCustom = () => {
   const data = useSession();
   const { status } = data;
-  console.log(data);
 
   return (
     <Navbar expand="lg" className="bg_primary" variant="dark">
       <Container>
         <Link className="navbar-brand fw-bold" href="/">
-          pc<span className='text-primary-emphasis'>Builder</span>
+          pc<span className="text-primary-emphasis">Builder</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -43,8 +42,7 @@ const NavbarCustom = () => {
 
             <Link href="/pc-builder">
               <button className=" btn-sm ms-4 btn btn-success">
-                {" "}
-                PC Builder{" "}
+                PC Builder
               </button>
             </Link>
             {status === "authenticated" ? (

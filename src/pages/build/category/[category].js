@@ -19,8 +19,7 @@ const CategoryPage = ({ products }) => {
           <div className=" my-3">
             <p className="text-danger"> No data found </p>
             <Button type="primary" onClick={() => router.back()}>
-              {" "}
-              Go Back{" "}
+              Go Back
             </Button>
           </div>
         )}

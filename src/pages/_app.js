@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { darkTheme, lightTheme } from "@/theme/themeConfig";
 import { store } from "@/redux/store";
 
-console.log(process.env.NODE_ENV);
 
 export default function App({ Component, pageProps }) {
   const [isDark, setIsDark] = useState(false);

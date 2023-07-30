@@ -2,6 +2,7 @@ import CategoryLayout from "@/components/Layouts/CategoryLayout";
 import Layout1 from "@/components/Layouts/Layout1";
 import CategoryCard from "@/components/category/CategoryCard";
 import { base_url_api } from "@/constant/constant";
+import { Button } from "antd";
 
 const CategoryPage = ({ products }) => {
   return (
@@ -15,8 +16,7 @@ const CategoryPage = ({ products }) => {
           <div className=" my-3">
             <p className="text-danger"> No data found </p>
             <Button type="primary" onClick={() => router.back()}>
-              {" "}
-              Go Back{" "}
+              Go Back
             </Button>
           </div>
         )}

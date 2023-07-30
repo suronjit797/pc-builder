@@ -34,14 +34,8 @@ const RegisterPage = () => {
       <div className={styles.container}>
         <Card className={styles.card}>
           <div className="text-center mb-4">
-            {" "}
             <Link href="/">
-              {" "}
-              <Button
-                type="primary"
-                shape="circle"
-                icon={<HomeOutlined />}
-              />{" "}
+              <Button type="primary" shape="circle" icon={<HomeOutlined />} />
             </Link>
           </div>
           <div className={styles.switch}>

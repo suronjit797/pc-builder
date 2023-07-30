@@ -3,7 +3,6 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { base_url_app } from "@/constant/constant";
 
-console.log({ base_url_app });
 
 export const authOptions = {
   providers: [
