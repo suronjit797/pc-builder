@@ -11,7 +11,7 @@ const HomeProducts = ({ products }) => {
       </div>
 
       <Row className="g-3">
-        {products.map((product, ind) => (
+        {products?.map((product, ind) => (
           <Col lg={3} md={4} sm={6} key={ind}>
             <ProductCard product={product} />
           </Col>

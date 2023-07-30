@@ -19,8 +19,16 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${base_url_api}/products?limit=8&page=1`);
+  const numRes = await fetch(`${base_url_api}/products?limit=1&page=1`);
+  const { total } = await numRes.json();
+
+  const totalPage = Math.floor(total / 8);
+
+  let number = Math.ceil(Math.random() * totalPage);
+
+  const res = await fetch(`${base_url_api}/products?limit=8&page=${number}`);
   const products = await res.json();
+  console.log(products.data?.length);
   return {
     props: {
       products,

@@ -8,7 +8,7 @@ const { Meta } = Card;
 
 const ProductCard = ({ product }) => {
   return (
-    <Link href={`/product/${product._id}`} className='d-block' style={{ textDecoration: "none" }}>
+    <Link href={`/product/${product._id}`} className='d-block h-100' style={{ textDecoration: "none" }}>
       <Card
         className={styles.homeCard}
         hoverable

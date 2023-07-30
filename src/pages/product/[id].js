@@ -1,8 +1,8 @@
 import Layout1 from "@/components/Layouts/Layout1";
+import Ratings from "@/components/products/ratings";
 import { base_url_api } from "@/constant/constant";
-import { Tag } from "antd";
+import { Rate, Tag } from "antd";
 import Image from "next/image";
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 const ProductDetailsPage = ({ product }) => {
@@ -36,34 +36,42 @@ const ProductDetailsPage = ({ product }) => {
             </div>
             <div>
               <b>Individual Rating</b>
-              <span> {product.individualRating} of 5 </span>
+              <span>
+                <Rate
+                  className="ms-2"
+                  value={product.individualRating}
+                  disabled
+                  allowHalf={true}
+                />
+              </span>
             </div>
-            <div>
+            {/* <div>
               <b>Average Rating</b> <span> {product.averageRating} of 5 </span>
-            </div>
-
+            </div> */}
             <div className="mt-3">
               <b>Description:</b> <span> {product.description} </span>
             </div>
-
-            {product?.keyFeatures?.length > 0 && (
-              <div>
-                {/* <b>Features: </b> */}
-                <span>
-                  {product?.keyFeatures?.map((item, key) => (
-                    <Tag key={key} color="#87d068">
-                      {item}
-                    </Tag>
-                  ))}
-                </span>
-              </div>
-            )}
+            <div className="mt-4">
+              {product?.keyFeatures?.length > 0 && (
+                <div>
+                  {/* <b>Features: </b> */}
+                  <span>
+                    {product?.keyFeatures?.map((item, key) => (
+                      <Tag key={key} color="#87d068">
+                        {item}
+                      </Tag>
+                    ))}
+                  </span>
+                </div>
+              )}
+            </div>
 
             {/* <div>
               <b>Reviews:</b> <span> {product.name} </span>
             </div> */}
           </Col>
         </Row>
+        <Ratings product={product} />
       </Container>
     </Layout1>
   );
@@ -94,5 +102,6 @@ export async function getStaticProps({ params }) {
     props: {
       product: data,
     },
+    revalidate: 30
   };
 }
