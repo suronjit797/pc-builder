@@ -2,11 +2,15 @@ import CategoryLayout from "@/components/Layouts/CategoryLayout";
 import Layout1 from "@/components/Layouts/Layout1";
 import CategoryCard from "@/components/category/CategoryCard";
 import { base_url_api } from "@/constant/constant";
+import { Button } from "antd";
+import { useRouter } from "next/router";
+import { Container } from "react-bootstrap";
 
 const CategoryPage = ({ products }) => {
+  const router = useRouter();
   return (
     <Layout1>
-      <CategoryLayout>
+      <Container>
         {products?.length > 0 ? (
           products.map((product) => (
             <CategoryCard key={product.id} product={product} />
@@ -20,32 +24,22 @@ const CategoryPage = ({ products }) => {
             </Button>
           </div>
         )}
-      </CategoryLayout>
+      </Container>
     </Layout1>
   );
 };
 
 export default CategoryPage;
 
-// This function gets called at build time
-export async function getStaticPaths() {
-  const res = await fetch(`${base_url_api}/products?limit=100`);
-  const products = await res.json();
-
-  const paths = products?.data?.map((product) => ({
-    params: { category: product.category },
-  }));
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps(context) {
+// This gets called on every request
+export async function getServerSideProps({ params }) {
+  // Fetch data from external API
   const res = await fetch(
-    `${base_url_api}/products?category=${context?.params?.category}`
+    `${base_url_api}/products?category=${params?.category}`
   );
-  const products = await res.json();
+  const { data } = await res.json();
+  // console.log(data);
 
-  return {
-    props: { products: products?.data },
-    revalidate: 30,
-  };
+  // Pass data to the page via props
+  return { props: { products: data } };
 }

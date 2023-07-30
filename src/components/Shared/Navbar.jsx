@@ -17,8 +17,8 @@ const NavbarCustom = () => {
   return (
     <Navbar expand="lg" className="bg_primary" variant="dark">
       <Container>
-        <Link className="navbar-brand" href="/">
-          Logo
+        <Link className="navbar-brand fw-bold" href="/">
+          pc<span className='text-primary-emphasis'>Builder</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

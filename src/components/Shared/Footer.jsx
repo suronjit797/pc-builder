@@ -4,16 +4,15 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
-  const { categoryList} = useSelector(
-    (state) => state.category
-  );
+  const { categoryList } = useSelector((state) => state.category);
   return (
-    
     <footer className="mt-auto bg_primary pt-5 pb-4 text-light">
       <Container>
         <Row className="g-4">
           <Col lg={3} md={6}>
-            <h1> Logo </h1>
+            <Link className="fs-3 fw-bold text-decoration-none text-white" href="/">
+              pc<span className="text-primary-emphasis">Builder</span>
+            </Link>
           </Col>
 
           <Col lg={5} md={6}>

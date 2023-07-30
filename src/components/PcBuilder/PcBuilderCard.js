@@ -14,7 +14,7 @@ const PcBuilderCard = ({ category }) => {
         <div className="d-flex flex-row align-items-center justify-content-between">
           <div> {category.name}</div>
           <div>
-            <Link href={category.link} className="d-block w-100">
+            <Link href={`/build${category.link}`} className="d-block w-100">
               <Button type="primary"> Choose </Button>
             </Link>
           </div>
