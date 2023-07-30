@@ -1,7 +1,7 @@
 import Layout1 from "@/components/Layouts/Layout1";
+import { base_url_api } from "@/constant/constant";
 import { Tag } from "antd";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
@@ -72,7 +72,7 @@ const ProductDetailsPage = ({ product }) => {
 export default ProductDetailsPage;
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.BASE_URL}/products?limit=10000`);
+  const res = await fetch(`${base_url_api}/products?limit=10000`);
   const { data } = await res.json();
   const products = data;
 
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`${process.env.BASE_URL}/products/${params.id}`);
+  const res = await fetch(`${base_url_api}/products/${params.id}`);
   const { data } = await res.json();
 
   return {

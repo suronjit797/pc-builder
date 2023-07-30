@@ -1,5 +1,6 @@
 import Layout1 from "@/components/Layouts/Layout1";
 import ProductCard from "@/components/Shared/ProductCard";
+import { base_url_api } from "@/constant/constant";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
@@ -22,7 +23,7 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BASE_URL}/products?limit=1000`);
+  const res = await fetch(`${base_url_api}/products?limit=1000`);
   const { data } = await res.json();
 
   return {

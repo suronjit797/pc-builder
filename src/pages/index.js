@@ -3,7 +3,7 @@ import HomeSlider from "@/components/Home/HomeSlider";
 import HomeCategory from "@/components/Home/HomeCategory";
 import { Container } from "react-bootstrap";
 import HomeProducts from "@/components/Home/HomeProducts";
-
+import { base_url_api } from "@/constant/constant";
 
 export default function Home({ products }) {
   return (
@@ -19,7 +19,7 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BASE_URL}/products?limit=8&page=1`);
+  const res = await fetch(`${base_url_api}/products?limit=8&page=1`);
   const products = await res.json();
   return {
     props: {

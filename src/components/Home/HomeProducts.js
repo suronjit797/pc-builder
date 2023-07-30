@@ -1,4 +1,3 @@
-import { categoryList } from "@/_server/constant";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import ProductCard from "../Shared/ProductCard";

@@ -1,7 +1,7 @@
 import Layout1 from "@/components/Layouts/Layout1";
 import React from "react";
 import { Container } from "react-bootstrap";
-// import { categoryList } from "@/_server/constant";
+// import { categoryList } from "@/constant/constant";
 import PcBuilderCard from "@/components/PcBuilder/PcBuilderCard";
 import { useSelector } from "react-redux";
 import { Button } from "antd";
@@ -22,7 +22,6 @@ const PcBuilderPage = () => {
       timerProgressBar: true,
     }).then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
-        
       }
     });
   };

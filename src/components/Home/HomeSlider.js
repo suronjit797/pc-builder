@@ -11,16 +11,15 @@ const sliderOptions = [slider1, slider2, slider3, slider4];
 const HomeSlider = () => (
   <Carousel autoplay>
     {sliderOptions.map((item, ind) => (
-      <div key={ind}>
-        <Image
-          placeholder="blur"
-          width="100vw"
-          height={720}
-          layout="responsive"
-          alt="slider1"
-          src={item}
-        />
-      </div>
+      <Image
+        placeholder="blur"
+        width={1080}
+        height={720}
+        layout="responsive"
+        alt="slider1"
+        src={item}
+        key={ind}
+      />
     ))}
   </Carousel>
 );

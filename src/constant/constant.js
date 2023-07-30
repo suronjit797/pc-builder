@@ -14,13 +14,6 @@ export const productEnum = [
   "others",
 ];
 
-export const methods = {
-  post: "POST",
-  get: "GET",
-  patch: "PATCH",
-  delete: "DELETE",
-};
-
 export const categoryList = [
   {
     id: 1,
@@ -65,3 +58,14 @@ export const categoryList = [
     icon: <BsMouse />,
   },
 ];
+
+export const base_url_api =
+  (process.env.NODE_ENV === "production"
+    ? "https://pc-builder-api-ten.vercel.app/api/v1"
+    : "http://localhost:5000/api/v1") ||
+  "https://pc-builder-api-ten.vercel.app/api/v1";
+
+export const base_url_app =
+  (process.env.NODE_ENV === "production"
+    ? "https://pc-builder-kappa.vercel.app"
+    : "http://localhost:3000") || "https://pc-builder-kappa.vercel.app";

@@ -1,6 +1,7 @@
 import CategoryLayout from "@/components/Layouts/CategoryLayout";
 import Layout1 from "@/components/Layouts/Layout1";
 import CategoryCard from "@/components/category/CategoryCard";
+import { base_url_api } from "@/constant/constant";
 
 const CategoryPage = ({ products }) => {
   return (
@@ -19,7 +20,7 @@ export default CategoryPage;
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.BASE_URL}/products?limit=100`);
+  const res = await fetch(`${base_url_api}/products?limit=100`);
   const products = await res.json();
 
   const paths = products?.data?.map((product) => ({
@@ -30,7 +31,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const res = await fetch(
-    `${process.env.BASE_URL}/products?category=${context?.params?.category}`
+    `${base_url_api}/products?category=${context?.params?.category}`
   );
   const products = await res.json();
 

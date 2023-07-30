@@ -1,4 +1,4 @@
-import { categoryList } from "@/_server/constant";
+import { categoryList } from "@/constant/constant";
 import React from "react";
 import styles from "@/styles/Home.module.css";
 import { Col, Row } from "react-bootstrap";
@@ -16,7 +16,7 @@ const HomeCategory = () => {
         {categoryList.slice(0, 6).map((category, ind) => (
           <Col lg={2} md={3} sm={4} xs={6} key={ind}>
             <Link
-              href={`/${category?.link}`}
+              href={category?.link}
               style={{ textDecoration: "none" }}
               className="text-dark d-block h-100"
             >

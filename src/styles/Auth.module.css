@@ -6,8 +6,8 @@
   padding: 20px;
 }
 
-.main hr{
-  opacity: .4;
+.main hr {
+  opacity: 0.4;
 }
 
 .container {
@@ -45,6 +45,10 @@
   justify-content: center;
   margin-bottom: 15px;
   margin-top: 10px;
+}
+
+.switch a {
+  text-decoration: none;
 }
 .switch .heading {
   padding: 5px 30px 8px;

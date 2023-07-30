@@ -3,7 +3,14 @@ import React from "react";
 import styles from "@/styles/Auth.module.css";
 import { Button, Card, Form, Input } from "antd";
 import Link from "next/link";
-import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
+import {
+  GoogleOutlined,
+  GithubOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { base_url_app } from "@/constant/constant";
 
 const onFinish = (values) => {
   console.log("Success:", values);
@@ -14,10 +21,31 @@ const onFinishFailed = (errorInfo) => {
 };
 
 const LoginPage = () => {
+  const { status } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <p> Loading... </p>;
+  }
+  if (status === "authenticated") {
+    router.push("/");
+  }
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <Card className={styles.card}>
+          <div className="text-center mb-4">
+            {" "}
+            <Link href="/">
+              {" "}
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<HomeOutlined />}
+              />{" "}
+            </Link>
+          </div>
           <div className={styles.switch}>
             <h2 className={`${styles.heading} ${styles.active}`}> Login </h2>
             <Link href="/register" className={styles.heading}>
@@ -25,6 +53,7 @@ const LoginPage = () => {
             </Link>
           </div>
           <Form
+            disabled
             name="login"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -78,8 +107,26 @@ const LoginPage = () => {
 
           <hr />
           <div className={styles.social}>
-            <Button type="primary" shape="circle" icon={<GoogleOutlined />} />
-            <Button type="primary" shape="circle" icon={<GithubOutlined />} />
+            <Button
+              type="primary"
+              shape="circle"
+              onClick={() =>
+                signIn("google", {
+                  callbackUrl: base_url_app,
+                })
+              }
+              icon={<GoogleOutlined />}
+            />
+            <Button
+              type="primary"
+              shape="circle"
+              onClick={() =>
+                signIn("github", {
+                  callbackUrl: base_url_app,
+                })
+              }
+              icon={<GithubOutlined />}
+            />
           </div>
         </Card>
       </div>

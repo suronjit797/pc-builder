@@ -57,7 +57,10 @@ export const categorySlice = createSlice({
       const findItem = state.categoryList.find(
         (item) => item.id === action?.payload?.category
       );
-      state.price += action?.payload?.price;
+
+      if (Object.keys(findItem.item).length <= 0) {
+        state.price += action?.payload?.price;
+      }
 
       const updatedItem = { ...findItem, item: action?.payload };
       state.categoryList = state.categoryList.map((item) => {

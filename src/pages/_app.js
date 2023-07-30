@@ -8,23 +8,38 @@ import { Provider } from "react-redux";
 import { darkTheme, lightTheme } from "@/theme/themeConfig";
 import { store } from "@/redux/store";
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
+console.log(process.env.NODE_ENV);
+
+export default function App({ Component, pageProps }) {
   const [isDark, setIsDark] = useState(false);
 
   return (
-    <div className={isDark ? "dark-theme" : ""}>
-      <SessionProvider session={session}>
-        <ThemeContext.Provider value={{ isDark, setIsDark }}>
-          <ConfigProvider theme={isDark ? darkTheme : lightTheme}>
-            <Provider store={store}>
-              <Component {...pageProps} />
-            </Provider>
-          </ConfigProvider>
-        </ThemeContext.Provider>
-      </SessionProvider>
-    </div>
+    <ThemeContext.Provider value={{ isDark, setIsDark }}>
+      <ConfigProvider theme={isDark ? darkTheme : lightTheme}>
+        <Provider store={store}>
+          <SessionProvider session={pageProps.session}>
+            <Component {...pageProps} />
+          </SessionProvider>
+        </Provider>
+      </ConfigProvider>
+    </ThemeContext.Provider>
   );
 }
+// export default function App({
+//   Component,
+//   pageProps: { session, ...pageProps },
+// }) {
+//   const [isDark, setIsDark] = useState(false);
+
+//   return (
+//     <ThemeContext.Provider value={{ isDark, setIsDark }}>
+//       <ConfigProvider theme={isDark ? darkTheme : lightTheme}>
+//         <Provider store={store}>
+//           <SessionProvider session={session}>
+//             <Component {...pageProps} />
+//           </SessionProvider>
+//         </Provider>
+//       </ConfigProvider>
+//     </ThemeContext.Provider>
+//   );
+// }
